@@ -1,3 +1,4 @@
+/*
 import { TestBed, inject } from '@angular/core/testing';
 
 import { MakeService } from './make.service';
@@ -13,3 +14,5 @@ describe('MakeService', () => {
     expect(service).toBeTruthy();
   }));
 });
+
+*/
