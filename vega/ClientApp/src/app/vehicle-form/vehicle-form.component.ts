@@ -7,7 +7,7 @@ import { VehicleService } from '../services/vehicle.service';
   styleUrls: ['./vehicle-form.component.css']
 })
 export class VehicleFormComponent implements OnInit {
-  makes: any[];
+  makes: any;
   models: any[];
   features;
   vehicle: any = {};
@@ -21,7 +21,7 @@ export class VehicleFormComponent implements OnInit {
   }
 
   onMakeChange() {
-    var selectedMake = this.makes.find(m => m.id == this.vehicle.make)
+    var selectedMake = this.makes.find(m => m.id == this.vehicle.make);
     this.models = selectedMake ?  selectedMake.models : [];
   }
 
