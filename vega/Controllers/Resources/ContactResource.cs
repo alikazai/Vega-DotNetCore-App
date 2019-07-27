@@ -1,14 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace vega.Models
+namespace vega.Controllers.Resources
 {
-    [Owned]
-    public class Contact
+    public class ContactResource
     {
         [Required]
         [StringLength(255)]
@@ -20,6 +18,5 @@ namespace vega.Models
         [Required]
         [StringLength(255)]
         public string ContactPhone { get; set; }
-
     }
 }

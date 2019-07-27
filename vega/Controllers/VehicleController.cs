@@ -5,10 +5,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using vega.Controllers.Resources;
+using vega.Models;
 using vega.Persistance;
 
 namespace vega.Controllers
 {
+    [Route("/api/vehicles")]
     public class VehicleController : Controller
     {
         private readonly VegaDbContext _context;
@@ -20,8 +24,12 @@ namespace vega.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<>>
-
+        [HttpPost]
+        public IActionResult CreateVehicle([FromBody] VehicleResource vehicleResource)
+        {
+            var vehicle = _mapper.Map<VehicleResource, Vehicle>(vehicleResource);
+            return Ok(vehicle);
+        }
 
     }
 }

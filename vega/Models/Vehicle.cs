@@ -22,11 +22,11 @@ namespace vega.Models
 
         public DateTime LastUpdate { get; set; }
 
-        public ICollection<Feature> Features { get; set; }
+        public ICollection<VehicleFeature> Features { get; set; }
 
         public Vehicle()
         {
-            Features = new Collection<Feature>();
+            Features = new Collection<VehicleFeature>();
         }
 
     }
