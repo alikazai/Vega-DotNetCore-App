@@ -25,11 +25,18 @@ namespace vega.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateVehicle([FromBody] VehicleResource vehicleResource)
+        public async Task<IActionResult> CreateVehicle([FromBody] VehicleResource vehicleResource)
         {
             var vehicle = _mapper.Map<VehicleResource, Vehicle>(vehicleResource);
-            return Ok(vehicle);
-        }
+            vehicle.LastUpdate = DateTime.Now;
 
+            _context.Add(vehicle);
+            await _context.SaveChangesAsync();
+
+            var result = _mapper.Map<Vehicle, VehicleResource>(vehicle);
+
+            return Ok(result);
+        }
+        
     }
 }
