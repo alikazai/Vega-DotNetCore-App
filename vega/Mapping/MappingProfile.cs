@@ -32,6 +32,7 @@ namespace vega.Mapping
                 .ForMember(c => c.ContactEmail, opt => opt.MapFrom(cr => cr.Email))
                 .ForMember(c => c.ContactPhone, opt => opt.MapFrom(cr => cr.Phone));
             CreateMap<VehicleResource, Vehicle>()
+                .ForMember(v => v.Id, opt => opt.Ignore())
                 .ForMember(v => v.Features, opt => opt.MapFrom(vr => vr.Features.Select(id => new VehicleFeature { FeatureId = id })));
         }
     }
